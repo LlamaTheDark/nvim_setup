@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/moose/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/moose/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/home/moose/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/moose/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/moose/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -99,6 +99,12 @@ _G.packer_plugins = {
     path = "/home/moose/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dressing.nvim"] = {
+    config = { "\27LJ\2\n \1\0\0\a\0\t\0\0156\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\a\0005\4\5\0009\5\4\0B\5\1\2=\5\6\4=\4\b\3B\1\2\1K\0\1\0\vselect\1\0\1\vselect\0\14telescope\1\0\1\14telescope\0\15get_cursor\nsetup\rdressing\21telescope.themes\frequire\0" },
+    loaded = true,
+    path = "/home/moose/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/moose/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -108,6 +114,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/moose/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/moose/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -193,6 +204,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for symbols-outline.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20symbols-outline\frequire\0", "config", "symbols-outline.nvim")
 time([[Config for symbols-outline.nvim]], false)
+-- Config for: dressing.nvim
+time([[Config for dressing.nvim]], true)
+try_loadstring("\27LJ\2\n \1\0\0\a\0\t\0\0156\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\a\0005\4\5\0009\5\4\0B\5\1\2=\5\6\4=\4\b\3B\1\2\1K\0\1\0\vselect\1\0\1\vselect\0\14telescope\1\0\1\14telescope\0\15get_cursor\nsetup\rdressing\21telescope.themes\frequire\0", "config", "dressing.nvim")
+time([[Config for dressing.nvim]], false)
 -- Config for: nvim-ufo
 time([[Config for nvim-ufo]], true)
 try_loadstring("\27LJ\2\n¨\1\0\0\3\0\n\0\0226\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\3\0009\0\4\0'\1\6\0=\1\5\0006\0\3\0009\0\4\0)\1c\0=\1\a\0006\0\3\0009\0\4\0)\1c\0=\1\b\0006\0\3\0009\0\4\0+\1\2\0=\1\t\0K\0\1\0\15foldenable\19foldlevelstart\14foldlevel\0061\15foldcolumn\6o\bvim\nsetup\bufo\frequire\0", "config", "nvim-ufo")

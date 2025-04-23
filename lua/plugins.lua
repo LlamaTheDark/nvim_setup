@@ -45,6 +45,15 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	use {
+		'stevearc/dressing.nvim',
+		config = function()
+			local themes = require('telescope.themes')
+			require('dressing').setup {
+				select = { telescope = themes.get_cursor(), },  -- use Telescope under the hood
+			}
+		end,
+	}
 
 	-- Treesitter for better syntax highlighting, code navigation, etc...
 	use {
@@ -62,6 +71,9 @@ return require('packer').startup(function(use)
 
 	-- OneDark Theme
 	use 'navarasu/onedark.nvim'
+
+	-- EdenEast NightFox Theme
+	use 'EdenEast/nightfox.nvim'
 
 	-- Install vim-fugitive
 	use 'tpope/vim-fugitive'

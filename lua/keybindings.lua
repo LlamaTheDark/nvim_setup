@@ -24,3 +24,6 @@ vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { silent = true, desc = 
 -- Additional custom shortcuts using your leader key
 vim.keymap.set("n", "<leader>fo", require("ufo").openAllFolds, { silent = true, desc = "Open all folds" })
 vim.keymap.set("n", "<leader>fc", require("ufo").closeAllFolds, { silent = true, desc = "Close all folds" })
+
+-- <leader>ca for “code action”
+vim.keymap.set('n', '<leader>fa', function() vim.lsp.buf.code_action() end, { desc = "LSP: Code Action" })

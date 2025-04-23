@@ -10,6 +10,6 @@ require("telescope-config")
 require("treesitter")
 require("nvimtree")
 require("keybindings")
-require("theme")
+require("onedark-theme") -- theme
 require("style-guide") -- for things related to tabs, and some default settings like set number etc.
 require("todo");

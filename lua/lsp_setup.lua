@@ -45,6 +45,7 @@ for _, server in ipairs(servers) do
     flags = {
       debounce_text_changes = 150,
     },
+	cmd = { 'clangd', '--compile-commands-dir=build' },
     -- For some servers you can add server-specific settings
     -- For example, sqls might require connection details:
     -- settings = server == "sqls" and {

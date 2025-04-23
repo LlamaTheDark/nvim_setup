@@ -17,3 +17,6 @@ vim.opt.mouse = ""
 
 -- Sync clipboard with system clipboard (optional)
 vim.opt.clipboard = "unnamedplus"
+
+
+

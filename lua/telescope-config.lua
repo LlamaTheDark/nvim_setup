@@ -1,19 +1,22 @@
--- ~/.config/nvim/lua/telescope.lua
+-- ~/.config/nvim/lua/telescope-config.lua
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 
 telescope.setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-        -- Close on Escape in insert mode
-        ["<Esc>"] = actions.close,
-      },
-    },
-  },
+	extensions = {
+		['ui-select'] = {}
+	},
+	defaults = {
+		mappings = {
+			i = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
+				-- Close on Escape in insert mode
+				["<Esc>"] = actions.close,
+			},
+		},
+	},
 }
 
 -- Optional: create key mappings
