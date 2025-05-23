@@ -13,7 +13,6 @@ require("mason-lspconfig").setup({
     "pyright",     -- Python
     "intelephense",-- PHP
     "sqls",        -- SQL/MySQL
-    "glslls",      -- GLSL for graphics shaders (if available)
   },
 })
 
@@ -28,6 +27,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, bufopts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
+
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+
+  if client.server_capabilities.semanticTokensProvider then
+	  vim.lsp.semantic_tokens.start(bufnr)
+  end
 end
 
 -- Enhance LSP capabilities for autocompletion (assuming you use cmp-nvim-lsp)
@@ -45,7 +50,7 @@ for _, server in ipairs(servers) do
     flags = {
       debounce_text_changes = 150,
     },
-	cmd = { 'clangd', '--compile-commands-dir=build' },
+	-- cmd = { 'clangd', '--compile-commands-dir=build' },
     -- For some servers you can add server-specific settings
     -- For example, sqls might require connection details:
     -- settings = server == "sqls" and {

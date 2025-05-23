@@ -60,6 +60,19 @@ return require('packer').startup(function(use)
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
+	use 'nvim-treesitter/playground'
+
+	use {
+		"m-demare/hlargs.nvim",
+		config = function()
+			require("hlargs").setup {
+				paint_arg_declarations = true,
+				paint_arg_usages       = true,
+			}
+			-- link the highlight group it uses to your Identifier color
+			vim.cmd("highlight link Hlargs Identifier")
+		end,
+	}
 
 	-- NvimTree for file browser
 	use {
@@ -68,6 +81,9 @@ return require('packer').startup(function(use)
 			'kyazdani42/nvim-web-devicons', -- optional, for file icons
 		},
 	}
+
+	-- Tokyonight Theme
+	use 'folke/tokyonight.nvim'
 
 	-- OneDark Theme
 	use 'navarasu/onedark.nvim'
@@ -95,6 +111,15 @@ return require('packer').startup(function(use)
 			require("symbols-outline").setup()
 		end
 	}
+	
+	-- Debug
+	use { 'mfussenegger/nvim-dap' }
+	use { 'nvim-neotest/nvim-nio' }
+	use {
+		'rcarriga/nvim-dap-ui',
+		requires = { 'mfussenegger/nvim-dap' }
+	}
+
 
 	if packer_bootstrap then
 		require('packer').sync()

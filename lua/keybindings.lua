@@ -27,3 +27,39 @@ vim.keymap.set("n", "<leader>fc", require("ufo").closeAllFolds, { silent = true,
 
 -- <leader>ca for “code action”
 vim.keymap.set('n', '<leader>fa', function() vim.lsp.buf.code_action() end, { desc = "LSP: Code Action" })
+
+
+-- function to “move” the current window (buffer) into tab `n`
+local function move_win_to_tab(n)
+  -- grab the buffer from the current window
+  local buf = vim.api.nvim_win_get_buf(0)
+
+  -- close this window (if it was the only window in the tab, the tab itself will close)
+  vim.cmd('silent! close')
+
+  -- if tab `n` already exists…
+  if n <= vim.fn.tabpagenr('$') then
+    -- jump to it…
+    vim.cmd('tabnext ' .. n)
+    -- …then open our buffer in a vertical split so we don’t clobber anything
+    vim.cmd('vsplit')
+    vim.api.nvim_win_set_buf(0, buf)
+    -- equalize all windows in this tab
+    vim.cmd('wincmd =')
+  else
+    -- otherwise create a new tab with our buffer
+    -- (this is like “moving” it to a brand-new desktop)
+    vim.cmd('tabedit ' .. vim.api.nvim_buf_get_name(buf))
+  end
+end
+
+-- map <Ctrl-Alt-1> … <Ctrl-Alt-9> to move_win_to_tab(1..9)
+for i = 1, 9 do
+  vim.keymap.set(
+    'n',
+    '<C-M-' .. i .. '>',
+    function() move_win_to_tab(i) end,
+    { noremap = true, silent = true }
+  )
+end
+
