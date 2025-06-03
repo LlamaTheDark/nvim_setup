@@ -15,7 +15,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),     -- Scroll down in docs
     ['<C-Space>'] = cmp.mapping.complete(),     -- Trigger completion
     ['<C-e>'] = cmp.mapping.abort(),            -- Abort completion
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm selection
+    -- ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Confirm selection
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
